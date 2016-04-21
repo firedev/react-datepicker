@@ -332,17 +332,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 
+
 	  handleKeyDown: function handleKeyDown(e) {
 	    if (e.key === 'Enter') {
 	      var value = this.state.maybeDate;
 	      var date = (0, _moment2.default)(value, false);
 	      if (date.isValid() && !(0, _date_utils.isDayDisabled)(date, this.props)) {
 	        this.props.onChangeDate(date);
+	        this.props.onKeyDown(e);
 	      } else if (value === '') {
 	        this.props.onChangeDate(null);
+	        this.props.onKeyDown(e);
 	      }
 	    }
-	    this.props.onKeyDown(e);
 	  },
 
 	  handleChangeDate: function handleChangeDate(value) {

@@ -50,17 +50,19 @@ var DateInput = React.createClass({
       this.handleChangeDate(event.target.value)
     }
   },
+
   handleKeyDown: function(e) {
     if (e.key === 'Enter') {
       var value = this.state.maybeDate
       var date = moment(value, false)
       if (date.isValid() && !isDayDisabled(date, this.props)) {
         this.props.onChangeDate(date)
+        this.props.onKeyDown(e)
       } else if (value === '') {
         this.props.onChangeDate(null)
+        this.props.onKeyDown(e)
       }
     }
-    this.props.onKeyDown(e)
   },
 
   handleChangeDate (value) {
