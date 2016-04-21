@@ -34,12 +34,12 @@ var DateInput = React.createClass({
 
   componentWillReceiveProps (newProps) {
     if (!isSameDay(newProps.date, this.props.date) ||
-          newProps.locale !== this.props.locale ||
+        newProps.locale !== this.props.locale ||
           newProps.dateFormat !== this.props.dateFormat) {
-      this.setState({
-        maybeDate: this.safeDateFormat(newProps)
-      })
-    }
+            this.setState({
+              maybeDate: this.safeDateFormat(newProps)
+            })
+          }
   },
 
   handleChange (event) {
@@ -50,16 +50,20 @@ var DateInput = React.createClass({
       this.handleChangeDate(event.target.value)
     }
   },
-
-  handleChangeDate (value) {
-    if (this.props.onChangeDate) {
-      var date = moment(value, this.props.dateFormat, this.props.locale || moment.locale(), true)
+  handleKeyDown: function(e) {
+    if (e.key === 'Enter') {
+      var value = this.state.maybeDate
+      var date = moment(value, false)
       if (date.isValid() && !isDayDisabled(date, this.props)) {
         this.props.onChangeDate(date)
       } else if (value === '') {
         this.props.onChangeDate(null)
       }
     }
+    this.props.onKeyDown(e)
+  },
+
+  handleChangeDate (value) {
     this.setState({
       maybeDate: value
     })
@@ -86,12 +90,14 @@ var DateInput = React.createClass({
 
   render () {
     return <input
-        ref='input'
-        type='text'
-        {...this.props}
-        value={this.state.maybeDate}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange} />
+      ref='input'
+      type='text'
+      {...this.props}
+      value={this.state.maybeDate}
+      onBlur={this.handleBlur}
+      onKeyDown={this.handleKeyDown}
+      onChange={this.handleChange}
+    />
   }
 })
 
