@@ -334,7 +334,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	  handleKeyDown: function handleKeyDown(e) {
-	    if (e.key === 'Enter') {
+	    if (e.key === 'Enter' || e.key === 'Tab') {
 	      var value = this.state.maybeDate;
 	      var date = (0, _moment2.default)(value, false);
 	      if (date.isValid() && !(0, _date_utils.isDayDisabled)(date, this.props)) {
@@ -344,6 +344,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.props.onChangeDate(null);
 	        this.props.onKeyDown(e);
 	      }
+	    }
+	    if (e.key !== 'Enter') {
+	      this.props.onKeyDown(e);
 	    }
 	  },
 
