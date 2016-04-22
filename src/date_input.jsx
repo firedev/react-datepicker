@@ -62,6 +62,8 @@ var DateInput = React.createClass({
         this.props.onChangeDate(null)
         this.props.onKeyDown(e)
       }
+    } else {
+      this.props.onKeyDown(e)
     }
   },
 
