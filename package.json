@@ -1,10 +1,10 @@
 {
   "author": "HackerOne",
-  "name": "react-datepicker",
-  "description": "A simple and reusable datepicker component for React",
+  "name": "react-datepicker-firedev",
+  "description": "Fork of react-datepicker with parsing on enter and tab",
   "version": "0.26.0",
   "license": "MIT",
-  "homepage": "https://github.com/Hacker0x01/react-datepicker",
+  "homepage": "https://github.com/firedev/react-datepicker",
   "main": "dist/react-datepicker.min.js",
   "style": "dist/react-datepicker.min.css",
   "files": [
@@ -21,10 +21,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hacker0x01/react-datepicker.git"
+    "url": "git://github.com/firedev/react-datepicker.git"
   },
   "bugs": {
-    "url": "https://github.com/Hacker0x01/react-datepicker/issues"
+    "url": "https://github.com/firedev/react-datepicker/issues"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
