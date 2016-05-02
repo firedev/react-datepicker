@@ -175,7 +175,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  onInputClick: function onInputClick() {
-	    this.setOpen(true);
+	    if (!this.props.disabled) {
+	      this.setOpen(true);
+	    }
 	  },
 	  onInputKeyDown: function onInputKeyDown(event) {
 	    if (event.key === 'Enter' || event.key === 'Escape') {
@@ -366,6 +368,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.props.onBlur(event);
 	    }
 	  },
+
+
+	  handleFocus: function handleFocus(e) {
+	    var target = e.target;
+	    setTimeout(function () {
+	      target.select();
+	    }, 0);
+	  },
+
 	  focus: function focus() {
 	    this.refs.input.focus();
 	  },
@@ -376,6 +387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, this.props, {
 	      value: this.state.maybeDate,
 	      onBlur: this.handleBlur,
+	      onFocus: this.handleFocus,
 	      onKeyDown: this.handleKeyDown,
 	      onChange: this.handleChange
 	    }));
