@@ -2,7 +2,7 @@
   "author": "HackerOne",
   "name": "react-datepicker-firedev",
   "description": "Fork of react-datepicker with parsing on enter and tab",
-  "version": "0.26.1",
+  "version": "0.26.2",
   "license": "MIT",
   "homepage": "https://github.com/firedev/react-datepicker",
   "main": "dist/react-datepicker.min.js",
