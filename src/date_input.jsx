@@ -18,7 +18,8 @@ var DateInput = React.createClass({
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onChangeDate: React.PropTypes.func,
-    onFocus: React.PropTypes.func
+    onFocus: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func
   },
 
   getDefaultProps () {
@@ -37,10 +38,10 @@ var DateInput = React.createClass({
     if (!isSameDay(newProps.date, this.props.date) ||
         newProps.locale !== this.props.locale ||
           newProps.dateFormat !== this.props.dateFormat) {
-            this.setState({
-              maybeDate: this.safeDateFormat(newProps)
-            })
-          }
+      this.setState({
+        maybeDate: this.safeDateFormat(newProps)
+      })
+    }
   },
 
   handleChange (event) {
@@ -52,20 +53,20 @@ var DateInput = React.createClass({
     }
   },
 
-  handleKeyDown: function(e) {
-    if (e.key === 'Enter' || e.key === 'Tab') {
+  handleKeyDown (event) {
+    if (event.key === 'Enter' || event.key === 'Tab') {
       var value = this.state.maybeDate
       var date = moment(value, false)
       if (date.isValid() && !isDayDisabled(date, this.props)) {
         this.props.onChangeDate(date)
-        this.props.onKeyDown(e)
+        this.props.onKeyDown(event)
       } else if (value === '') {
         this.props.onChangeDate(null)
-        this.props.onKeyDown(e)
+        this.props.onKeyDown(event)
       }
     }
-    if (e.key !== 'Enter') {
-      this.props.onKeyDown(e)
+    if (event.key !== 'Enter') {
+      this.props.onKeyDown(event)
     }
   },
 
@@ -92,14 +93,13 @@ var DateInput = React.createClass({
 
   render () {
     return <input
-      ref='input'
-      type='text'
-      {...this.props}
-      value={this.state.maybeDate}
-      onBlur={this.handleBlur}
-      onKeyDown={this.handleKeyDown}
-      onChange={this.handleChange}
-    />
+        ref='input'
+        type='text'
+        {...this.props}
+        value={this.state.maybeDate}
+        onBlur={this.handleBlur}
+        onKeyDown={this.handleKeyDown}
+        onChange={this.handleChange} />
   }
 })
 
