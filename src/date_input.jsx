@@ -90,10 +90,6 @@ var DateInput = React.createClass({
     }
   },
 
-  focus () {
-    this.refs.input.focus()
-  },
-
   render () {
     return <input
       ref='input'
