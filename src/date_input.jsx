@@ -89,13 +89,6 @@ var DateInput = React.createClass({
     }
   },
 
-  handleFocus: function(e) {
-    var target = e.target;
-    setTimeout(function() {
-      target.select();
-    }, 0);
-  },
-
   focus () {
     this.refs.input.focus()
   },
@@ -107,7 +100,6 @@ var DateInput = React.createClass({
       {...this.props}
       value={this.state.maybeDate}
       onBlur={this.handleBlur}
-      onFocus={this.handleFocus}
       onKeyDown={this.handleKeyDown}
       onChange={this.handleChange}
     />
