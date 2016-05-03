@@ -213,17 +213,6 @@ describe('DateInput', function () {
     })
   })
 
-  describe('focusing', function () {
-    it('should call onFocus when focusing on the input', function () {
-      var spy = sinon.spy()
-      var dateInput = TestUtils.renderIntoDocument(
-        <DateInput onFocus={spy} />
-      )
-      TestUtils.Simulate.focus(ReactDOM.findDOMNode(dateInput))
-      assert(spy.calledOnce, 'must be called once')
-    })
-  })
-
   describe('localization', function () {
     var dateFormat = 'LL'
 

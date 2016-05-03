@@ -18,7 +18,6 @@ var DateInput = React.createClass({
     onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onChangeDate: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
     onKeyDown: React.PropTypes.func
   },
 
