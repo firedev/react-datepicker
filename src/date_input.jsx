@@ -95,10 +95,23 @@ var DateInput = React.createClass({
   },
 
   render () {
+    const {
+      date,
+      dateFormat,
+      excludeDates,
+      filterDate,
+      includeDates,
+      locale,
+      maxDate,
+      minDate,
+      onChangeDate,
+      ...inputProps
+    } = this.props
+
     return <input
         ref='input'
         type='text'
-        {...this.props}
+        {...inputProps}
         value={this.state.maybeDate}
         onBlur={this.handleBlur}
         onKeyDown={this.handleKeyDown}
