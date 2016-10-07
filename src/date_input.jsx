@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 1 */
 import moment from 'moment'
 import React from 'react'
 import { isSameDay, isDayDisabled } from './date_utils'
