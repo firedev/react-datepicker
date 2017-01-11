@@ -108,11 +108,13 @@ var DateInput = React.createClass({
       ...inputProps
     } = this.props
 
+    const value = this.state.maybeDate ? this.state.maybeDate : ''
+
     return <input
         ref='input'
         type='text'
         {...inputProps}
-        value={this.state.maybeDate}
+        value
         onBlur={this.handleBlur}
         onKeyDown={this.handleKeyDown}
         onChange={this.handleChange} />
